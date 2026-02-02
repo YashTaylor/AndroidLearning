@@ -20,11 +20,16 @@ class MainActivity : AppCompatActivity()
 
         counterViewModel = ViewModelProvider(this).get(CounterViewModel::class.java)
 
-        binding.textView2.text = counterViewModel.getCounter().toString()
+        //ViewModel
+        /*binding.textView2.text = counterViewModel.getCounter().toString()
 
         binding.button.setOnClickListener {
             counterViewModel.increaseCounter()
             binding.textView2.text = counterViewModel.getCounter().toString()
-        }
+        }*/
+
+        //LiveData
+        binding.viewModel = counterViewModel
+        binding.lifecycleOwner = this
     }
 }
