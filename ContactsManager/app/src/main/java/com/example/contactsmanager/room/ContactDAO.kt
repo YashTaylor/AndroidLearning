@@ -1,11 +1,13 @@
 package com.example.contactsmanager.room
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 
+@Dao
 interface ContactDAO
 {
     @Insert
@@ -17,7 +19,7 @@ interface ContactDAO
     @Delete
     suspend fun deleteContact(contacts: Contacts)
 
-    @Query("SELECT * FROM contacts_table")
+    @Query("DELETE FROM contacts_table")
     suspend fun deleteAll()
 
     @Query("SELECT * FROM contacts_table")

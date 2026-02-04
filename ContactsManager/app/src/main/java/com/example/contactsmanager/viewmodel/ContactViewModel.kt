@@ -1,4 +1,4 @@
-package com.example.contactsmanager
+package com.example.contactsmanager.viewmodel
 
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
@@ -90,12 +90,12 @@ class ContactViewModel(private val repository: ContactsRepository) : ViewModel()
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?)
     {
-        TODO("Not yet implemented")
+
     }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?)
     {
-        TODO("Not yet implemented")
+
     }
 
 }
