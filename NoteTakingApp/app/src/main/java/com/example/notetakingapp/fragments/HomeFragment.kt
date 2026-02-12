@@ -29,7 +29,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-//        setHasOptionsMenu(true)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
@@ -66,16 +66,19 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         }
     }
 
-    fun updateUi(note: List<Note>)
+    fun updateUi(note: List<Note>?)
     {
-        if (note.isNotEmpty())
+        if (note != null)
         {
-            binding.cardView.visibility = View.GONE
-            binding.recyclerView.visibility = View.VISIBLE
-        } else
-        {
-            binding.cardView.visibility = View.VISIBLE
-            binding.recyclerView.visibility = View.GONE
+            if (note.isNotEmpty())
+            {
+                binding.cardView.visibility = View.GONE
+                binding.recyclerView.visibility = View.VISIBLE
+            } else
+            {
+                binding.cardView.visibility = View.VISIBLE
+                binding.recyclerView.visibility = View.GONE
+            }
         }
     }
 
