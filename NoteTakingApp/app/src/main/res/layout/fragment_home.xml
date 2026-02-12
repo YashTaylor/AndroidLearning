@@ -45,7 +45,7 @@
             app:cardCornerRadius="10dp"
             android:layout_margin="32dp"
             android:layout_gravity="center"
-            app:layout_behaviour="@string/appbar_scrolling_view_behaviour"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_constraintBottom_toTopOf="@id/fabAddNote"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

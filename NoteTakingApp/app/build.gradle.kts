@@ -60,7 +60,9 @@ dependencies {
     val room_version = "2.8.4"
     implementation("androidx.room:room-runtime:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
+
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+    implementation("androidx.room:room-ktx:${room_version}")
 
     val nav_version = "2.9.7"
     implementation("androidx.navigation:navigation-fragment-ktx:${nav_version}")
