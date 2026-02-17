@@ -11,6 +11,7 @@ import com.example.coroutinesapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity()
 {
@@ -33,11 +34,15 @@ class MainActivity : AppCompatActivity()
 
     }
 
-    private fun downloadFile()
+    private suspend fun downloadFile()
     {
         for (i in 1..100000)
         {
-            Log.i("TAGY", "downloadFile: $i in ${Thread.currentThread().name}")
+//            Log.i("TAGY", "downloadFile: $i in ${Thread.currentThread().name}")
+            withContext(Dispatchers.Main)
+            {
+                binding.tvThread.text = "$i in ${Thread.currentThread().name}"
+            }
         }
     }
 }
