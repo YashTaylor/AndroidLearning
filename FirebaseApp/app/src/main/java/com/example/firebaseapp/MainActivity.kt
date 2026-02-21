@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity()
         //Initialize firestore
         val db = Firebase.firestore
 
+        /*
         //Creating a collection : Users
         val user_collection = db.collection("Users")
 
@@ -49,12 +50,28 @@ class MainActivity : AppCompatActivity()
             if (it != null)
             {
 //                tvOne.text = it.data.toString() // gets the entire object or get single field like below
-                tvOne.text = it.data!!.get("name").toString() + " " + it.data!!.get("lname").toString()
+                tvOne.text = it.data?.get("name").toString() + " " + it.data?.get("lname").toString()
             }
-        }
-        /*
+        }*/
 
-        database = Firebase.database.reference
+        //Getting all documents from collection
+        var allDocs = ""
+
+        db.collection("Users").get().addOnSuccessListener {
+            for (document in it)
+            {
+                allDocs += "${document.data}"
+            }
+            tvOne.text = allDocs
+        }
+
+        //Updating data in document
+        db.collection("Users").document("user1").update("born", 1990)
+
+        //deleting a document
+        db.collection("Users").document("user2").delete()
+
+        /*database = Firebase.database.reference
 
         // Custom object read and write operations
 
