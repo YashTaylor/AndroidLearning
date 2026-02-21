@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
+import com.google.firebase.database.getValue
 
 class MainActivity : AppCompatActivity()
 {
@@ -22,7 +23,26 @@ class MainActivity : AppCompatActivity()
 
         database = Firebase.database.reference
 
-        //Write to firebase database
+        // Custom object read and write operations
+        // writing custom object to firebase
+        val user1 = User("Yash", "123")
+        database.child("Users").setValue(user1)
+
+        //reading custom object from firebase
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot)
+            {
+                val user = snapshot.getValue<User>()
+                tvOne.text = user.toString()
+            }
+
+            override fun onCancelled(error: DatabaseError) { }
+        }
+        database.child("Users").addValueEventListener(postListener)
+
+
+        // Basic Read and Write operations
+        /*//Write to firebase database
         database.child("price").setValue("Rs 1,20,000")
 
         //read from firebase database
@@ -38,6 +58,6 @@ class MainActivity : AppCompatActivity()
 
             }
         }
-        database.child("price").addValueEventListener(postListener)
+        database.child("price").addValueEventListener(postListener)*/
     }
 }
