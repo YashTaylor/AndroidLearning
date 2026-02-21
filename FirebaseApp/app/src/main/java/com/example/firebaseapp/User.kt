@@ -1,6 +1,6 @@
 package com.example.firebaseapp
 
 data class User(
-    val username: String = "",
+    val userName: String = "",
     val password: String = ""
 )
