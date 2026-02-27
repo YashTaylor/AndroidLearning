@@ -12,13 +12,13 @@ import com.example.roomdatabase.Item
 interface ItemDao
 {
     @Insert
-    fun insert(item: Item)
+    suspend fun insert(item: Item)
 
     @Delete
-    fun delete(item: Item)
+    suspend fun delete(item: Item)
 
     @Update
-    fun update(item: Item)
+    suspend fun update(item: Item)
 
     @Query("DELETE FROM Item")
     fun deleteAllItems()
