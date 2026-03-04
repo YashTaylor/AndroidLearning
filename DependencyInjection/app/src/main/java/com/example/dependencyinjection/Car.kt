@@ -1,45 +1,13 @@
 package com.example.dependencyinjection
 
-/*
+import javax.inject.Inject
 
-// WITHOUT DEPENDENCY INJECTION
-class Car
+//Dependent of engine class
+class Car @Inject constructor (val engine: Engine)
 {
-    // Dependency is created inside the class
-    //Dependency is passed from inside the class: TIGHTLY COUPLED
-    private val engine = Engine()
-
+    // Car depends on engine, hilt handles the injecting part
     fun start()
     {
         println(engine.start())
-    }
-}
-
-class Main()
-{
-    fun main()
-    {
-        println(Car().start())
-    }
-}*/
-
-
-//WITH CONSTRUCTOR DEPENDENCY INJECTION
-class Car(val engine: Engine)
-{
-    //Dependency is passed from outside the class: LOOSELY COUPLED
-    fun start()
-    {
-        println(engine.start())
-    }
-}
-
-class Main()
-{
-    fun main()
-    {
-        val engine = Engine()
-        val car = Car(engine)
-        println(car.start())
     }
 }
