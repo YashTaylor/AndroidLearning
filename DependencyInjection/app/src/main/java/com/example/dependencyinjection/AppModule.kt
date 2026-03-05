@@ -17,11 +17,12 @@ object AppModule
         return Engine()
     }
 
-    @Provides
+    // For constructor injection
+    /*@Provides
     @Singleton
     fun provideCar(engine: Engine): Car
     {
         return Car(engine)
-    }
+    }*/
 
 }
